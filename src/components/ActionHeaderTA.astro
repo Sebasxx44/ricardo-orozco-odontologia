@@ -1,5 +1,5 @@
 ---
-interface Props { eyebrow: string; title: string; description?: string; level?: 'h1' | 'h2' }
-const { eyebrow, title, description, level: Heading = 'h1' } = Astro.props;
+interface Props { eyebrow: string; title: string; description?: string; level?: 'h1' | 'h2'; class?: string }
+const { eyebrow, title, description, level: Heading = 'h1', class: className } = Astro.props;
 ---
-<div class="action-header reveal"><p class="eyebrow"><span></span>{eyebrow}</p><Heading><slot name="title">{title}</slot></Heading>{description && <p class="action-description">{description}</p>}<slot/></div>
+<div class:list={['action-header', 'reveal', className]}><p class="eyebrow"><span></span>{eyebrow}</p><Heading><slot name="title">{title}</slot></Heading>{description && <p class="action-description">{description}</p>}<slot/></div>
