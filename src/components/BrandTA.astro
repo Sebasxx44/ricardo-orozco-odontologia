@@ -1,0 +1,6 @@
+---
+import IconTA from '@/components/IconTA.astro';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<a class:list={['brand', { compact }]} href="/inicio" aria-label="Dr. Ricardo Orozco, inicio"><span class="brand-symbol"><IconTA name="tooth" size={32}/></span><span><strong>Ricardo Orozco<span class="brand-dot">.</span></strong><small>ODONTOLOGÍA & REHABILITACIÓN ORAL</small></span></a>

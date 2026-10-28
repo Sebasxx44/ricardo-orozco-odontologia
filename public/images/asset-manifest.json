@@ -1,0 +1,131 @@
+{
+  "site": "https://www.odontologoricardoorozco.com",
+  "retrievedAt": "2026-10-28T16:08:05.521Z",
+  "downloadNote": "Los enlaces directos del CDN de originales respondieron403. Se descargaron sus versiones WebP mediante el proxy de imágenes empleado por la propia web, a calidad90 y ancho máximo2400. originals conserva esos archivos tal como se descargaron.",
+  "assets": [
+    {
+      "name": "ricardo-orozco-retrato",
+      "alt": "Dr. Ricardo Orozco sonriendo en su consultorio, junto a la unidad odontológica.",
+      "recommendedUse": "Retrato del doctor para página de trayectoria o sección sobre el profesional.",
+      "identityContext": "Identificado por su ubicación en la página Hoja de Vida del sitio oficial.",
+      "sourcePage": "https://www.odontologoricardoorozco.com/hoja-de-vida",
+      "sourceUrl": "https://assets.cdn.filesafe.space/6SP2HWk6qpDrMnZfTaAk/media/694086b5ca729837091aa4a9.jpg",
+      "downloadUrl": "https://images.leadconnectorhq.com/image/f_webp/q_90/r_2400/u_https://assets.cdn.filesafe.space/6SP2HWk6qpDrMnZfTaAk/media/694086b5ca729837091aa4a9.jpg",
+      "sourceFile": "/tmp/ricardo-orozco-assets/originals/ricardo-orozco-retrato-source.webp",
+      "sourceDimensions": {
+        "width": 2400,
+        "height": 2400
+      },
+      "sourceBytes": 461698,
+      "variants": [
+        {
+          "file": "doctor-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 11478
+        },
+        {
+          "file": "doctor-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 28052
+        },
+        {
+          "file": "doctor-1600.webp",
+          "width": 1600,
+          "height": 1600,
+          "bytes": 61052
+        }
+      ],
+      "appName": "doctor.webp",
+      "crop": null,
+      "cropNote": null
+    },
+    {
+      "name": "ricardo-orozco-consultorio",
+      "alt": "Dr. Ricardo Orozco sentado en su consultorio con instrumental y unidad dental en primer plano.",
+      "recommendedUse": "Contexto del consultorio o sección de contacto.",
+      "identityContext": "Fotografía publicada como fondo en la página Contacto del sitio oficial.",
+      "sourcePage": "https://www.odontologoricardoorozco.com/contacto",
+      "sourceUrl": "https://assets.cdn.filesafe.space/6SP2HWk6qpDrMnZfTaAk/media/694086b502123474d2ef2f4e.jpg",
+      "downloadUrl": "https://images.leadconnectorhq.com/image/f_webp/q_90/r_2400/u_https://assets.cdn.filesafe.space/6SP2HWk6qpDrMnZfTaAk/media/694086b502123474d2ef2f4e.jpg",
+      "sourceFile": "/tmp/ricardo-orozco-assets/originals/ricardo-orozco-consultorio-source.webp",
+      "sourceDimensions": {
+        "width": 2400,
+        "height": 1600
+      },
+      "sourceBytes": 133766,
+      "variants": [
+        {
+          "file": "clinic-480.webp",
+          "width": 480,
+          "height": 286,
+          "bytes": 5816
+        },
+        {
+          "file": "clinic-960.webp",
+          "width": 960,
+          "height": 572,
+          "bytes": 13880
+        },
+        {
+          "file": "clinic-1600.webp",
+          "width": 1600,
+          "height": 953,
+          "bytes": 26838
+        }
+      ],
+      "appName": "clinic.webp",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 2400,
+        "height": 1430
+      },
+      "cropNote": "Recorte de encuadre para excluir marca/texto incrustado; no se alteró rostro ni contenido fotográfico."
+    },
+    {
+      "name": "consulta-odontologia-digital",
+      "alt": "Dr. Ricardo Orozco realizando un escaneo dental con un dispositivo intraoral y un computador al lado.",
+      "recommendedUse": "Tecnología y atención profesional. Fotografía horizontal de una consulta.",
+      "identityContext": "Mismo profesional que el retrato de su biografía; imagen publicada en Hoja de Vida. La persona atendida no se identifica.",
+      "sourcePage": "https://www.odontologoricardoorozco.com/hoja-de-vida",
+      "sourceUrl": "https://assets.cdn.filesafe.space/6SP2HWk6qpDrMnZfTaAk/media/694086b596e753bd87ea6f50.jpg",
+      "downloadUrl": "https://images.leadconnectorhq.com/image/f_webp/q_90/r_2400/u_https://assets.cdn.filesafe.space/6SP2HWk6qpDrMnZfTaAk/media/694086b596e753bd87ea6f50.jpg",
+      "sourceFile": "/tmp/ricardo-orozco-assets/originals/consulta-odontologia-digital-source.webp",
+      "sourceDimensions": {
+        "width": 2400,
+        "height": 1347
+      },
+      "sourceBytes": 144232,
+      "variants": [
+        {
+          "file": "dental-scan-480.webp",
+          "width": 480,
+          "height": 327,
+          "bytes": 11044
+        },
+        {
+          "file": "dental-scan-960.webp",
+          "width": 960,
+          "height": 653,
+          "bytes": 25300
+        },
+        {
+          "file": "dental-scan-1600.webp",
+          "width": 1600,
+          "height": 1088,
+          "bytes": 48962
+        }
+      ],
+      "appName": "dental-scan.webp",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1980,
+        "height": 1347
+      },
+      "cropNote": "Recorte de encuadre para excluir marca/texto incrustado; no se alteró rostro ni contenido fotográfico."
+    }
+  ]
+}

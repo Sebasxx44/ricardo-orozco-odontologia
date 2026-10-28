@@ -1,0 +1,5 @@
+---
+import { faqs } from '@/data/practice';
+import IconTA from '@/components/IconTA.astro';
+---
+<section class="faq-section section-shell" aria-labelledby="faq-title" data-journey-node><div class="faq-intro reveal"><p class="eyebrow">Resolvamos tus dudas</p><h2 id="faq-title">Buenas preguntas.<br/><span>Respuestas claras.</span></h2><p>Entender tu salud oral también es parte del cuidado. Estos son algunos temas que puedes conversar en consulta.</p><a href="/contacto" class="text-link">Tengo otra pregunta<IconTA name="arrow" size={18}/></a></div><div class="faq-list">{faqs.map((faq, i) => <details class="reveal"><summary><span class="faq-number">{String(i+1).padStart(2,'0')}</span>{faq.question}<IconTA name="plus" size={18}/></summary><div class="faq-answer"><p>{faq.answer}</p></div></details>)}</div></section>

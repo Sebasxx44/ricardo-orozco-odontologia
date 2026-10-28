@@ -1,0 +1,129 @@
+---
+type CoverVariant = 'contour' | 'braces' | 'retainer' | 'smile' | 'balance' | 'care';
+interface Props { slug: string; context?: 'card' | 'feature' | 'article' }
+const { slug, context = 'card' } = Astro.props;
+const variants: Record<string, CoverVariant> = {
+  microdisenodental: 'contour',
+  esteticadental: 'smile',
+  'retenedores-mantener-resultados-tambien-es-cuidar-tu-confianza': 'retainer',
+  'cambios-emocionales-durante-y-despus-de-la-ortodoncia': 'balance',
+  'la-importancia-de-la-ortodoncia-en-adultos': 'braces',
+  comolosbracketsmejoranautoestima: 'braces',
+  Ortodonciacambiavidas: 'braces',
+  historiasreales: 'smile',
+  'el-poder-de-una-sonrisa-en-la-vida-social-y-profesional': 'balance',
+  cambiospequenos: 'contour',
+  'la-relacin-entre-salud-bucal-y-salud-mental': 'balance',
+  porquetusonrisa: 'smile',
+  'diseo-de-sonrisa-esttica-dental-y-confianza-personal': 'contour',
+  miedoalodontologo: 'care',
+  'pacientes-que-recuperan-su-confianza-despus-de-un-tratamiento-dental': 'care',
+  'sonrer-sin-miedo-el-impacto-emocional-de-una-boca-sana': 'smile',
+  'cmo-la-salud-oral-influye-en-la-autoestima': 'care',
+};
+const descriptions: Record<CoverVariant, string> = {
+  contour: 'Ilustración vectorial de un molar con líneas de contorno y guías de precisión dental.',
+  braces: 'Ilustración vectorial de dientes alineados con brackets y un arco de ortodoncia.',
+  retainer: 'Ilustración vectorial de un retenedor transparente siguiendo la forma de una arcada dental.',
+  smile: 'Ilustración vectorial de una sonrisa con formas dentales y trazos suaves en azul y menta.',
+  balance: 'Ilustración vectorial de un diente entre órbitas y líneas de equilibrio, sobre salud oral y bienestar.',
+  care: 'Ilustración vectorial de un molar protegido por una forma de escudo y guías clínicas.',
+};
+const variant = variants[slug] ?? 'care';
+const seed = [...slug].reduce((value, character) => value + character.charCodeAt(0), 0);
+const tilt = seed % 9 - 4;
+const prefix = `blog-cover-${context}-${slug}`;
+const enamel = `${prefix}-enamel`;
+const glass = `${prefix}-glass`;
+const grid = `${prefix}-grid`;
+const dark = variant === 'retainer' || variant === 'balance';
+const background = dark ? '#193f50' : variant === 'smile' ? '#e9f0df' : variant === 'care' ? '#e9f2f5' : '#e4f0f8';
+const line = dark ? '#9bc5d2' : '#82a8b8';
+const tooth = 'M400 150c-66-50-128-2-111 67 13 53 26 146 53 146 29 0 12-99 58-99s29 99 58 99c27 0 40-93 53-146 17-69-45-117-111-67Z';
+---
+<svg class="blog-cover" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" role="img" aria-label={descriptions[variant]} focusable="false">
+  <defs>
+    <linearGradient id={enamel} x1="260" y1="120" x2="505" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#ffffff"/><stop offset=".53" stop-color="#f5faf6"/><stop offset="1" stop-color="#b5d5e4"/></linearGradient>
+    <linearGradient id={glass} x1="280" y1="150" x2="540" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#d3ecf4" stop-opacity=".85"/><stop offset="1" stop-color="#77afe0" stop-opacity=".16"/></linearGradient>
+    <pattern id={grid} width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill={line} opacity=".2"/></pattern>
+  </defs>
+  <rect width="800" height="560" fill={background}/>
+  <rect x="45" y="40" width="710" height="480" fill={`url(#${grid})`}/>
+  <path d="M72 99V72h27m602 0h27v27M72 461v27h27m602 0h27v-27" fill="none" stroke={line} stroke-opacity=".55" stroke-width="1.2"/>
+  <path d="M95 280h32m546 0h32M400 66v26m0 376v26" fill="none" stroke={line} stroke-opacity=".4" stroke-width="1"/>
+  <circle cx={seed % 2 === 0 ? 642 : 154} cy={seed % 3 === 0 ? 136 : 421} r="46" fill="#e3f68b" opacity={dark ? '.9' : '.64'}/>
+  <circle cx="400" cy="280" r="179" fill="none" stroke={line} stroke-opacity=".16" stroke-width="1"/>
+  {variant === 'contour' && <g transform={`rotate(${tilt} 400 280)`}>
+    <ellipse cx="400" cy="404" rx="114" ry="12" fill="#193f50" opacity=".05"/>
+    <circle cx="400" cy="265" r="149" fill="#f5f8ec" opacity=".7"/>
+    <path d={tooth} fill={`url(#${enamel})`} stroke="#fff" stroke-width="2"/>
+    <path d="M319 166c26-17 48 11 82 9 32-1 46-20 67-16M318 212c0 31 6 62 14 87" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+    <path d="M399 178c-17 31 15 33 4 65" fill="none" stroke="#a9c9d9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M285 209h-61l-20-20M453 325h104l25 26M457 158h61l21-21" fill="none" stroke="#5b8fa7" stroke-width="1.3"/>
+    <circle cx="285" cy="209" r="4" fill="#77afe0"/><circle cx="453" cy="325" r="4" fill="#77afe0"/><circle cx="457" cy="158" r="4" fill="#77afe0"/>
+    <path d="M203 179v20m-10-10h20M582 341v20m-10-10h20M539 127v20m-10-10h20" fill="none" stroke="#7c9a5a" stroke-width="1.5"/>
+    <path d="M263 375h274M263 369v12m68-12v12m69-12v12m69-12v12m68-12v12" fill="none" stroke="#8eafbb" stroke-width="1"/>
+  </g>}
+  {variant === 'braces' && <g transform={`rotate(${tilt} 400 280)`}>
+    <ellipse cx="400" cy="412" rx="176" ry="12" fill="#193f50" opacity=".045"/>
+    <path d="M220 186q180-107 360 0" fill="none" stroke="#a7c5c0" stroke-width="23" stroke-linecap="round" opacity=".45"/>
+    <g fill={`url(#${enamel})`} stroke="#fff" stroke-width="2">
+      <path d="M245 192q-23 0-23 28l5 76q2 29 31 29h17q23-2 25-26l3-80q0-29-27-29Z"/>
+      <path d="M309 172q-17 3-17 29l4 111q1 28 30 29h36q28 0 28-29V193q0-27-27-27Z"/>
+      <path d="M491 172q17 3 17 29l-4 111q-1 28-30 29h-36q-28 0-28-29V193q0-27 27-27Z"/>
+      <path d="M555 192q23 0 23 28l-5 76q-2 29-31 29h-17q-23-2-25-26l-3-80q0-29 27-29Z"/>
+    </g>
+    <path d="M232 282q168 51 336 0" fill="none" stroke="#193f50" stroke-opacity=".2" stroke-width="3"/>
+    <g fill="#bbd5e2" stroke="#7ba7ba" stroke-width="1.2">
+      <rect x="245" y="258" width="27" height="31" rx="5"/><rect x="329" y="276" width="32" height="33" rx="5"/><rect x="439" y="276" width="32" height="33" rx="5"/><rect x="528" y="258" width="27" height="31" rx="5"/>
+    </g>
+    <path d="M236 273q164 49 328 0" fill="none" stroke="#77afe0" stroke-width="4" stroke-linecap="round"/>
+    <path d="M250 256v36m17-36v36m68-18v37m20-37v37m90-37v37m20-37v37m69-55v36m16-36v36" fill="none" stroke="#f7fbfa" stroke-width="2"/>
+    <path d="M250 369h300M250 364v10m50-10v10m50-10v10m50-10v10m50-10v10m50-10v10m50-10v10" fill="none" stroke="#89aab8" stroke-width="1"/>
+    <circle cx="594" cy="222" r="20" fill="#e3f68b"/><path d="m586 222 6 6 11-13" fill="none" stroke="#426d64" stroke-width="2"/>
+  </g>}
+  {variant === 'retainer' && <g transform={`rotate(${tilt - 8} 400 280)`}>
+    <ellipse cx="400" cy="282" rx="218" ry="158" fill="none" stroke="#77afe0" stroke-opacity=".35" stroke-width="1" stroke-dasharray="3 11"/>
+    <path d="M267 207c-24 97 10 202 133 202s157-105 133-202l-42-10c27 92-1 167-91 167s-118-75-91-167Z" fill={`url(#${glass})`} stroke="#b4dce8" stroke-width="2"/>
+    <path d="M276 208c-12 96 26 187 124 187s136-91 124-187" fill="none" stroke="#eff9f6" stroke-width="2"/>
+    <path d="M307 210q-27 144 93 150 120-6 93-150" fill="none" stroke="#e3f68b" stroke-width="2"/>
+    <g fill="none" stroke="#c1e0e7" stroke-width="1.5">
+      <path d="m271 234 36 8m-35 24 31 5m-25 26 29 2m-18 27 31-5m-13 29 27-12m-2 29 24-19m4 30 17-25m14 30 5-29"/>
+      <path d="m529 234-36 8m35 24-31 5m25 26-29 2m18 27-31-5m13 29-27-12m2 29-24-19m-4 30-17-25m-14 30-5-29"/>
+    </g>
+    <path d="M359 177h82m-41-41v82" fill="none" stroke="#9bc5d2" stroke-opacity=".35"/>
+    <circle cx="400" cy="177" r="24" fill="#e3f68b"/><path d="m390 177 7 7 13-15" fill="none" stroke="#193f50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M195 417h70m270 0h70" fill="none" stroke="#9bc5d2" stroke-opacity=".6"/>
+  </g>}
+  {variant === 'smile' && <g transform={`rotate(${tilt} 400 280)`}>
+    <circle cx="400" cy="272" r="151" fill="#f7f8f2"/>
+    <path d="M251 235q149 30 298 0-24 137-149 137T251 235Z" fill="#193f50"/>
+    <path d="M262 242q138 25 276 0-18 78-138 79t-138-79Z" fill={`url(#${enamel})`}/>
+    <path d="m305 249 11 58m42-51 4 62m38-61v63m42-64-4 62m57-69-11 58" fill="none" stroke="#c0d6dc" stroke-width="2"/>
+    <path d="M252 231q148 31 296 0M275 334q125 111 250 0" fill="none" stroke="#77afe0" stroke-width="3" stroke-linecap="round"/>
+    <path d="M221 199q-18 82 20 150m338-150q18 82-20 150" fill="none" stroke="#a8bbb0" stroke-width="1"/>
+    <circle cx="252" cy="231" r="5" fill="#77afe0"/><circle cx="548" cy="231" r="5" fill="#77afe0"/>
+    <path d="M574 159v33m-16-16h33" fill="none" stroke="#658c81" stroke-width="1.5"/>
+    <circle cx="251" cy="389" r="19" fill="#e3f68b"/><circle cx="251" cy="389" r="6" fill="#87aa8b"/>
+  </g>}
+  {variant === 'balance' && <g transform={`rotate(${tilt} 400 280)`}>
+    <ellipse cx="400" cy="270" rx="224" ry="115" transform="rotate(-30 400 270)" fill="none" stroke="#a9cdd7" stroke-opacity=".5" stroke-width="1"/>
+    <ellipse cx="400" cy="270" rx="224" ry="115" transform="rotate(30 400 270)" fill="none" stroke="#77afe0" stroke-opacity=".6" stroke-width="1"/>
+    <circle cx="400" cy="270" r="134" fill="#234e5e" stroke="#446e7d" stroke-width="1"/>
+    <g transform="translate(90 53) scale(.78)"><path d={tooth} fill={`url(#${enamel})`} stroke="#fff" stroke-width="1.5"/><path d="M319 166c26-17 48 11 82 9 32-1 46-20 67-16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g>
+    <circle cx="225" cy="178" r="15" fill="#e3f68b"/><circle cx="581" cy="355" r="8" fill="#77afe0"/>
+    <path d="M177 425h63l15-17 14 34 16-17h56m118 0h54l17-17 14 34 17-17h57" fill="none" stroke="#a9cdd7" stroke-opacity=".65" stroke-width="1.5"/>
+    <path d="M400 111v21m-10-11h20" fill="none" stroke="#a9cdd7" stroke-width="1.3"/>
+  </g>}
+  {variant === 'care' && <g transform={`rotate(${tilt} 400 280)`}>
+    <path d="m400 117 143 52v104c0 98-143 167-143 167s-143-69-143-167V169Z" fill="#d7e6df" stroke="#aac5bd" stroke-width="1.2"/>
+    <path d="m400 137 124 45v91c0 80-124 144-124 144s-124-64-124-144v-91Z" fill="none" stroke="#f7f8f2" stroke-width="1.4"/>
+    <g transform="translate(84 56) scale(.79)"><path d={tooth} fill={`url(#${enamel})`} stroke="#fff" stroke-width="2"/><path d="M319 166c26-17 48 11 82 9 32-1 46-20 67-16M318 212c0 31 6 62 14 87" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g>
+    <circle cx="511" cy="334" r="36" fill="#77afe0" stroke="#f7f8f2" stroke-width="6"/><path d="m496 334 11 11 20-24" fill="none" stroke="#193f50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M228 217h36m272 0h36M218 361h52m261 0h51" fill="none" stroke="#85a9b1" stroke-width="1.2"/>
+    <circle cx="228" cy="217" r="4" fill="#77afe0"/><circle cx="572" cy="217" r="4" fill="#77afe0"/>
+  </g>}
+</svg>
+<style>
+.blog-cover{width:100%;height:100%;display:block;transition:transform .45s;transform-origin:center}@media(prefers-reduced-motion:reduce){.blog-cover{transition:none}}
+</style>

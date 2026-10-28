@@ -1,0 +1,25 @@
+---
+interface Props { name: string; size?: number; class?: string }
+const { name, size = 24, class: className } = Astro.props;
+const paths: Record<string, string> = {
+  arrow: 'M5 19 19 5M5 5h14v14',
+  chevron: 'm6 9 6 6 6-6',
+  plus: 'M12 4v16M4 12h16',
+  close: 'm5 5 14 14M19 5 5 19',
+  menu: 'M3 7h18M3 17h18',
+  check: 'm5 12 4 4L19 6',
+  tooth: 'M12 4C8-1 2 3 3 9c.5 3 2 11 4.5 11 2 0 1-7 4.5-7s2.5 7 4.5 7C19 20 20.5 12 21 9c1-6-5-10-9-5Z',
+  pin: 'M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0ZM15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
+  phone: 'm6 3 3 5-2 2a15 15 0 0 0 7 7l2-2 5 3-1 3C10 23 1 14 3 4l3-1Z',
+  mail: 'M3 5h18v14H3ZM3 6l9 7 9-7',
+  whatsapp: 'M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.1-4.3A8.5 8.5 0 1 1 20 11.5ZM8 7l1 2-1 1a9 9 0 0 0 6 5l1-1 2 1M8 7c-3 2 1 9 7 8',
+  calendar: 'M4 5h16v16H4ZM4 10h16M8 3v4M16 3v4M8 14h2M14 14h2M8 18h2',
+  heart: 'M20.5 5.5c-3-3-6-1-8.5 1-2.5-2-5.5-4-8.5-1S3 13 12 20c9-7 11.5-11.5 8.5-14.5Z',
+  shield: 'm12 2 8 3v6c0 6-8 11-8 11S4 17 4 11V5l8-3Zm-4 9 3 3 5-6',
+  smile: 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM7 14c2 5 8 5 10 0M8 9h.01M16 9h.01',
+  instagram: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4ZM16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM17.5 6.5h.01',
+  facebook: 'M14 21v-8h3l1-4h-4V7c0-1 .5-2 2-2h2V2h-3c-4 0-5 3-5 5v2H7v4h3v8',
+  search: 'M20 20 15 15M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z',
+};
+---
+<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class={className}><path d={paths[name] ?? paths.tooth} /></svg>

@@ -1,0 +1,10 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PageLayoutTA from '@/components/PageLayoutTA.astro';
+import BlogArchiveTA from '@/components/blog/BlogArchiveTA.astro';
+import { articles } from '@/data/articles';
+export const getStaticPaths = (() => Array.from({length: Math.ceil(articles.length / 6) - 1}, (_, index) => ({params: {page: String(index + 2)}, props: {page: index + 2}}))) satisfies GetStaticPaths;
+interface Props { page: number }
+const { page } = Astro.props;
+---
+<PageLayoutTA title={`Noticias: página ${page}`} description={`Página ${page} de Noticias, el archivo del Dr. Ricardo Orozco sobre salud oral y bienestar. Información para una consulta más clara.`} active="/blog"><BlogArchiveTA page={page} category/></PageLayoutTA>

@@ -1,0 +1,10 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ArticlePageTA from '@/components/blog/ArticlePageTA.astro';
+import { articles } from '@/data/articles';
+import type { BlogArticle } from '@/types/blog';
+export const getStaticPaths = (() => articles.map((article) => ({params: {slug: article.slug}, props: {article}}))) satisfies GetStaticPaths;
+interface Props { article: BlogArticle }
+const { article } = Astro.props;
+---
+<ArticlePageTA article={article}/>

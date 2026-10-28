@@ -1,0 +1,55 @@
+---
+import PageLayoutTA from '@/components/PageLayoutTA.astro';
+import ActionHeaderTA from '@/components/ActionHeaderTA.astro';
+import IconTA from '@/components/IconTA.astro';
+import ToothSceneTA from '@/components/ToothSceneTA.astro';
+import JourneyRailTA from '@/components/JourneyRailTA.astro';
+import FaqTA from '@/components/FaqTA.astro';
+import ContactBandTA from '@/components/ContactBandTA.astro';
+import { services } from '@/data/practice';
+const approach = [
+  { number: '01', title: 'Primero, te escuchamos.', text: 'Conocer lo que necesitas y resolver tus preguntas es el comienzo de cada consulta.', icon: 'heart' },
+  { number: '02', title: 'Todo tiene una explicación.', text: 'Entiende las opciones de tratamiento y cada paso de tu proceso, con un trato cercano y sin afán.', icon: 'smile' },
+  { number: '03', title: 'Cuidamos cada detalle.', text: 'Materiales de calidad y tecnología al servicio de una atención personalizada.', icon: 'shield' },
+];
+const reviews = [
+  { name: 'María Fernanda Gutiérrez', city: 'Pereira', text: 'Destaca la atención cálida, las explicaciones claras y su experiencia con el diseño de sonrisa.', initials: 'MF' },
+  { name: 'Diana López', city: 'Pereira', text: 'Valora la puntualidad, la confianza y el cuidado recibido desde su primera limpieza dental.', initials: 'DL' },
+  { name: 'Juan Carlos Ramírez', city: 'Dosquebradas', text: 'Comparte su satisfacción con la rehabilitación oral y la mejoría que percibió al masticar.', initials: 'JC' },
+];
+---
+<PageLayoutTA title="Tu sonrisa, en buenas manos" description="Odontología y rehabilitación oral con el Dr. Ricardo Orozco en Pereira. Conoce al doctor, sus tratamientos y una forma cercana de cuidar tu sonrisa." active="/inicio">
+  <section class="hero" aria-label="Odontología con el Dr. Ricardo Orozco">
+    <div class="hero-copy">
+      <ActionHeaderTA eyebrow="Cuidado que se siente. Precisión que se nota." title="Tu sonrisa, en buenas manos." description="Atención cercana, estética y rehabilitación oral para cuidar eso que te hace sonreír.">
+        <Fragment slot="title">Tu sonrisa,<br/>en buenas<br/><span>manos.</span></Fragment>
+      </ActionHeaderTA>
+      <div class="hero-actions reveal"><a href="/contacto" class="button button-light">Agenda tu valoración<IconTA name="arrow" size={21}/></a><a class="hero-text-link" href="/servicios">Descubre los tratamientos<IconTA name="arrow" size={17}/></a></div>
+      <a class="hero-doctor reveal" href="/hoja-de-vida"><img src="/images/doctor-480.webp" width="68" height="68" alt="Dr. Ricardo Orozco" fetchpriority="high"/><span><small>UN NOMBRE EN EL QUE PUEDES CONFIAR.</small><strong>Dr. Ricardo Orozco</strong><span>Especialista en rehabilitación oral</span></span><IconTA name="arrow" size={18}/></a>
+    </div>
+    <div class="hero-visual"><span class="hero-visual-caption">CUIDADO A OTRA ESCALA.</span><ToothSceneTA/><div class="hero-coordinate"><span>4°48′ N · 75°41′ O</span><span>PEREIRA, COLOMBIA</span></div></div>
+    <a class="consultation-seal" href="/contacto" aria-label="Solicita tu valoración odontológica"><svg viewBox="0 0 150 150" aria-hidden="true"><defs><path id="seal-text" d="M75 75m-54 0a54 54 0 1 1 108 0a54 54 0 1 1-108 0"/></defs><text><textPath href="#seal-text" textLength="332">HABLEMOS DE TU SONRISA · AGENDA TU CITA · </textPath></text></svg><IconTA name="arrow" size={44}/></a>
+    <a class="hero-scroll" href="#tu-camino"><span class="scroll-line"></span>UN CAMINO PARA SONREÍR MEJOR<IconTA name="chevron" size={16}/></a>
+  </section>
+  <div class="journey-story" id="tu-camino">
+    <JourneyRailTA/>
+    <section class="intro-section section-shell" aria-labelledby="intro-title" data-journey-node>
+      <div class="section-marker reveal"><span>01 / NOS IMPORTAS TÚ</span><span class="marker-icon"><IconTA name="tooth" size={30}/></span></div>
+      <div class="intro-heading reveal"><p class="eyebrow">Más que tratar dientes</p><h2 id="intro-title">Cuidamos lo que hay<br/>detrás de <span>tu sonrisa.</span></h2><p>Comer con tranquilidad. Hablar con confianza. Volver a sonreír a tu manera. Tu salud oral forma parte de todos esos momentos.</p></div>
+      <div class="approach-list">{approach.map((item) => <article class="approach-item reveal"><span class="approach-number">{item.number}</span><IconTA name={item.icon} size={29}/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
+    </section>
+    <section class="home-treatments section-shell" aria-labelledby="treatments-title" data-journey-node>
+      <div class="section-topline reveal"><p class="eyebrow">02 / Encuentra tu tratamiento</p><a href="/servicios" class="text-link">Ver todos los servicios<IconTA name="arrow" size={18}/></a></div>
+      <div class="treatments-intro reveal"><h2 id="treatments-title">Distintas necesidades.<br/><span>Un mismo cuidado.</span></h2><p>Opciones para recuperar función, cuidar tu salud oral y encontrar una sonrisa que se sienta tuya.</p></div>
+      <div class="treatment-orbit"><div class="orbit-tooth reveal" aria-hidden="true"><svg viewBox="0 0 320 360" fill="none"><defs><linearGradient id="mini-enamel" x1="60" y1="30" x2="260" y2="320"><stop stop-color="white"/><stop offset=".48" stop-color="#d7e8ed"/><stop offset=".72" stop-color="white"/><stop offset="1" stop-color="#a9c9da"/></linearGradient></defs><circle cx="160" cy="175" r="147" stroke="#b4c7c9" stroke-dasharray="3 10"/><circle cx="160" cy="175" r="116" stroke="#cddbd8"/><path d="M160 67c-73-52-127 5-107 78 16 59 28 152 57 152 30 0 11-99 50-99s20 99 50 99c29 0 41-93 57-152 20-73-34-130-107-78Z" fill="url(#mini-enamel)" stroke="#fff" stroke-width="3"/><path d="M89 83c21-16 42 5 72 5 28 0 45-23 66-13M79 130c-2 36 8 71 18 97" stroke="white" stroke-width="6" stroke-linecap="round"/><path d="m151 105 14 23-5 24" stroke="#b9d1df" stroke-width="4" stroke-linecap="round"/><path d="M28 174H0m320 0h-28M160 0v29m0 300v31" stroke="#b4c7c9"/><circle cx="160" cy="15" r="5" fill="#9db879"/></svg><span>UNA SONRISA.<br/>MUCHAS POSIBILIDADES.</span></div><div class="treatment-links">{services.map((service, i) => <a class="treatment-link reveal" href={`/servicios#${service.id}`}><span class="treatment-count">0{i + 1}</span><span><strong>{service.title}</strong><small>{service.description}</small></span><IconTA name="arrow" size={22}/></a>)}</div></div>
+    </section>
+    <section class="doctor-section section-shell" aria-labelledby="doctor-title" data-journey-node>
+      <div class="doctor-photo-wrap reveal"><img src="/images/doctor.webp" srcset="/images/doctor-480.webp 480w, /images/doctor-960.webp 960w, /images/doctor.webp 1600w" sizes="(max-width: 760px) 90vw, 42vw" width="960" height="1120" alt="Retrato del Dr. Ricardo Orozco, odontólogo en Pereira" loading="lazy"/><div class="doctor-photo-stamp"><IconTA name="plus" size={24}/><span>TÉCNICA, CRITERIO<br/>Y TRATO HUMANO.</span></div></div>
+      <div class="doctor-copy reveal"><p class="eyebrow">03 / Conoce a tu odontólogo</p><h2 id="doctor-title">La experiencia<br/>tiene nombre.<br/><span>Ricardo Orozco.</span></h2><p>Odontólogo del Instituto de Ciencias de la Salud CES, Medellín, y especialista en Rehabilitación Oral Integral de la Universidad Autónoma de Manizales.</p><div class="doctor-credentials"><div><strong>2000</strong><span>Odontología<br/>CES · Medellín</span></div><div><strong>2009</strong><span>Rehabilitación oral integral<br/>U. Autónoma de Manizales</span></div></div><p class="doctor-membership">Miembro activo de la Asociación Colombiana de Prostodoncia.</p><a href="/hoja-de-vida" class="button button-dark">Conoce su trayectoria<IconTA name="arrow" size={20}/></a></div>
+    </section>
+    <section class="prevention-banner section-shell" aria-labelledby="prevention-title" data-journey-node><div class="prevention-blue reveal"><div class="prevention-illustration" aria-hidden="true"><svg viewBox="0 0 240 240" fill="none"><circle cx="120" cy="120" r="105" stroke="white" stroke-opacity=".3"/><path d="M120 59c-49-35-85 4-71 52 11 39 19 100 38 100 20 0 7-66 33-66s13 66 33 66c19 0 27-61 38-100 14-48-22-87-71-52Z" fill="#f2fcfb"/><path d="M67 92c1 23 7 46 13 66" stroke="#b4d8e8" stroke-width="5" stroke-linecap="round"/><path d="M186 20v38m-19-19h38M39 132v24m-12-12h24" stroke="#e3f68b" stroke-width="3"/><circle cx="166" cy="181" r="32" fill="#e3f68b"/><path d="m152 180 11 11 18-23" stroke="#245460" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p class="eyebrow">04 / Los pequeños hábitos cuentan</p><h2 id="prevention-title">Tu mejor tratamiento<br/>puede ser <em>prevenir.</em></h2><p>Educación, controles y cuidado diario. Dale a tu sonrisa la atención que necesita antes de que aparezcan las molestias.</p><a href="/prevencion-oral" class="button button-light">Aprende a cuidarte<IconTA name="arrow" size={20}/></a></div></div></section>
+    <section class="reviews-section section-shell" aria-labelledby="reviews-title" data-journey-node><div class="section-topline reveal"><p class="eyebrow">05 / Historias que nos acercan</p><span class="source-note">Resúmenes de reseñas del sitio original</span></div><h2 id="reviews-title" class="reveal">La confianza también<br/><span>se comparte.</span></h2><div class="review-grid">{reviews.map((review) => <article class="review-item reveal"><span class="review-quote" aria-hidden="true"><IconTA name="heart" size={36}/></span><p>{review.text}</p><div class="review-author"><span>{review.initials}</span><div><h3>{review.name}</h3><small>{review.city}</small></div><IconTA name="heart" size={21}/></div></article>)}</div><a class="text-link reviews-source" href="https://www.odontologoricardoorozco.com/inicio" target="_blank" rel="noopener noreferrer">Leer las reseñas originales<IconTA name="arrow" size={16}/></a></section>
+    <FaqTA/>
+    <ContactBandTA/>
+  </div>
+</PageLayoutTA>

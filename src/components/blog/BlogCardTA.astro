@@ -1,0 +1,17 @@
+---
+import IconTA from '@/components/IconTA.astro';
+import BlogCoverTA from '@/components/blog/BlogCoverTA.astro';
+import { articleDate } from '@/data/articles';
+import type { BlogArticle } from '@/types/blog';
+interface Props { article: BlogArticle; index: number; page?: number }
+const { article, index, page = 1 } = Astro.props;
+const searchText = [article.title, article.originalTitle, article.topic, ...article.tags].join(' ');
+---
+<article class="blog-card" data-blog-card data-blog-search={searchText} hidden={Math.floor(index / 6) + 1 !== page}>
+  <a class="blog-card-image" href={article.path} aria-label={`Leer: ${article.title}`}><BlogCoverTA slug={article.slug} context="card"/><span class="blog-card-number">{String(index + 1).padStart(2, '0')} / DIARIO</span><span class="blog-card-arrow"><IconTA name="arrow" size={20}/></span></a>
+  <div class="blog-card-meta"><span>{article.topic}</span><time datetime={article.date}>{articleDate(article.date)}</time></div>
+  <h2><a href={article.path}>{article.title}</a></h2><p>{article.excerpt}</p><a class="blog-card-read" href={article.path}>Leer artículo <IconTA name="arrow" size={15}/></a>
+</article>
+<style>
+.blog-card{min-width:0}.blog-card[hidden]{display:none!important}.blog-card-image{position:relative;display:block;aspect-ratio:1.25;overflow:hidden;border-radius:8px;background:#eaf0ed}.blog-card-image :global(.blog-cover){display:block;width:100%;height:100%}.blog-card-image:hover :global(.blog-cover){transform:scale(1.025)}.blog-card-number{position:absolute;left:18px;top:18px;background:#f7f8f2ed;color:#193f50;border-radius:20px;padding:7px 11px;font-size:10px;letter-spacing:1px}.blog-card-arrow{position:absolute;right:18px;bottom:18px;width:39px;height:39px;background:#e3f68b;color:#193f50;border-radius:50%;display:grid;place-items:center}.blog-card-meta{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:22px;font-size:11px;line-height:1.6}.blog-card-meta>span{color:#3f697b;font-weight:600}.blog-card-meta>time{color:#73858b;text-align:right}.blog-card h2{font-size:22px;font-weight:600;letter-spacing:-.8px;line-height:1.3;margin:12px 0}.blog-card h2 a:hover{color:#346c94}.blog-card>p{color:#617984;font-size:13px;line-height:1.85;margin:0}.blog-card-read{display:inline-flex;align-items:center;gap:18px;font-size:12px;font-weight:600;margin-top:18px;padding-bottom:7px;border-bottom:1px solid #193f5030}.blog-card-read:hover{border-color:#193f50}@media(max-width:650px){.blog-card h2{font-size:23px}.blog-card-image{aspect-ratio:1.35}.blog-card-meta{font-size:11px;margin-top:19px}.blog-card>p{font-size:13px}.blog-card-number{font-size:9px}}@media(prefers-reduced-motion:reduce){.blog-card-image :global(.blog-cover){transition:none}.blog-card-image:hover :global(.blog-cover){transform:none}}
+</style>

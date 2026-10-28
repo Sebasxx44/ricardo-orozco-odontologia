@@ -1,0 +1,59 @@
+---
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<svg class:list={['tooth-scene', { compact }]} viewBox="0 0 740 790" fill="none" aria-hidden="true" data-hero-art>
+  <defs>
+    <linearGradient id="enamel" x1="232" y1="222" x2="576" y2="584" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset=".32" stop-color="#f9fdfd"/><stop offset=".64" stop-color="#cfdfeb"/><stop offset=".82" stop-color="#fff"/><stop offset="1" stop-color="#9cb7cb"/></linearGradient>
+    <linearGradient id="enamel-side" x1="570" y1="310" x2="440" y2="585" gradientUnits="userSpaceOnUse"><stop stop-color="#eefaff"/><stop offset="1" stop-color="#7f9fb9"/></linearGradient>
+    <linearGradient id="titanium" x1="288" x2="535" gradientUnits="userSpaceOnUse"><stop stop-color="#c0d0df"/><stop offset=".12" stop-color="#425e72"/><stop offset=".25" stop-color="#cadbe7"/><stop offset=".42" stop-color="#fff"/><stop offset=".57" stop-color="#7f98aa"/><stop offset=".73" stop-color="#dde6ec"/><stop offset=".89" stop-color="#456173"/><stop offset="1" stop-color="#d1e0ec"/></linearGradient>
+    <linearGradient id="thread" x1="306" x2="534" gradientUnits="userSpaceOnUse"><stop stop-color="#6f8c9f"/><stop offset=".33" stop-color="#f0f7fb"/><stop offset=".62" stop-color="#b1c5d2"/><stop offset=".88" stop-color="#445d70"/><stop offset="1" stop-color="#adc6d5"/></linearGradient>
+    <linearGradient id="scrubs" x1="0" y1="0" x2="55" y2="130" gradientUnits="userSpaceOnUse"><stop stop-color="#2085be"/><stop offset="1" stop-color="#124773"/></linearGradient>
+    <radialGradient id="shine"><stop stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="floor"><stop stop-color="#1f5d8f" stop-opacity=".4"/><stop offset="1" stop-color="#1f5d8f" stop-opacity="0"/></radialGradient>
+    <filter id="tooth-shadow" x="-30%" y="-20%" width="160%" height="160%"><feDropShadow dx="0" dy="28" stdDeviation="18" flood-color="#185889" flood-opacity=".24"/></filter>
+    <filter id="tiny-shadow"><feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#173d5b" flood-opacity=".25"/></filter>
+    <pattern id="metal-grain" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 1h4" stroke="white" stroke-opacity=".2" stroke-width=".4"/></pattern>
+    <g id="clinician">
+      <path d="m22 67-4 52-9 49 13 3 17-48 7-38 10 40 1 47 14-1 2-53-15-56Z" fill="#164974"/>
+      <path d="m22 167-1 10-24 3-3-5 15-9ZM57 168l-1 10 28-1-1-6-14-5Z" fill="#17364d"/>
+      <path d="M16 28 36 21l21 8 11 43-15 9-15-6-25 4-5-26Z" fill="url(#scrubs)"/>
+      <path d="m35 27 8 10 7-12M28 47h12v13H28" stroke="#58b3d8" stroke-width="1.8"/>
+      <path d="m13 33-16 23 24 27 9-7L13 54l10-14" fill="#2585b6"/>
+      <path d="m58 31 18 21-7 29-10-3 4-23-14-16" fill="#237fb2"/>
+      <path d="m21 77 9-4 6 8-4 10-8-4ZM60 77l8 1 3 9-4 5-7-4Z" fill="#d8e8e9"/>
+      <path d="M33 11v14l13 1 2-15" fill="#cfa88e"/>
+      <ellipse cx="40" cy="2" rx="14" ry="18" fill="#dfbaa1"/>
+      <path d="M26 1c-6-20 26-25 28-4l-2 10-7-12-19 8Z" fill="#2486b1"/>
+      <path d="M26-3c8-6 18-7 27-1" stroke="#88cbdc" stroke-width="2"/>
+      <path d="m27 7 24-1-3 15-15 1Z" fill="#e1f5f3"/>
+      <path d="m31 11 15-1M31 15l14-1M27 8l-5-5M51 7l5-4" stroke="#91c4cd" stroke-width="1"/>
+      <path d="m33 3 4-1m5-1 4 1" stroke="#31566c" stroke-width="2" stroke-linecap="round"/>
+      <path d="m30 90 30 2M64 90l1 14" stroke="#afc6d3" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <ellipse cx="425" cy="739" rx="265" ry="50" fill="url(#floor)"/>
+  <g class="scene-orbit" opacity=".24"><ellipse cx="414" cy="382" rx="291" ry="307" stroke="white" stroke-dasharray="2 13"/><path d="M76 479c129 84 394 89 564-26" stroke="white"/><circle cx="677" cy="335" r="6" fill="#e7f491"/></g>
+  <g filter="url(#tooth-shadow)">
+    <path d="M302 503h222l-21 184c-3 34-25 58-86 61-59-3-83-27-88-60Z" fill="url(#titanium)"/>
+    {[0,1,2,3,4,5,6,7].map((i) => <g transform={`translate(${i * 1.4} ${i * 22})`}><path d="M307 546q109 36 218-1l-4 11q-106 40-211 0Z" fill="url(#thread)"/><path d="M309 547q108 32 213-1" stroke="#f0f6fa" stroke-opacity=".8" stroke-width="2"/></g>)}
+    <path d="M302 503h222l-21 184c-3 34-25 58-86 61-59-3-83-27-88-60Z" fill="url(#metal-grain)"/>
+    <ellipse cx="413" cy="511" rx="111" ry="31" fill="url(#titanium)"/>
+    <ellipse cx="413" cy="506" rx="89" ry="19" fill="#e4edf3"/>
+    <path d="M194 272c-31-47-6-101 43-118 44-16 69 22 104 23 39 2 64-33 107-32 61 2 114 51 140 91 38 58 41 124 19 203-14 49-40 80-82 92-49 14-87 9-131 4-51-6-91 8-129-20-39-29-38-80-49-128-9-38-21-77-22-115Z" fill="url(#enamel)"/>
+    <path d="M545 199c51 54 58 97 51 151-6 49-27 108-29 139-16 37-46 46-87 49 51-58 77-138 65-210-11-64-35-86-37-101Z" fill="url(#enamel-side)" opacity=".52"/>
+    <path d="M222 237c-28-37-13-61 17-68 35-9 62 27 105 28 47 1 63-32 103-31 41 1 64 21 87 48-32-8-56-18-82-9-32 11-51 40-93 40-42 0-65-28-101-22Z" fill="#fff" opacity=".82"/>
+    <path d="M242 233c36-16 71 28 114 26 40-2 62-33 91-43" stroke="#96b1c4" stroke-opacity=".38" stroke-width="6" stroke-linecap="round"/>
+    <path d="M355 257c-4 22 9 34 27 49M447 216l26 29" stroke="#c4d4df" stroke-width="4" stroke-linecap="round"/>
+    <path d="M215 285c-2 56 29 91 31 157 1 27 8 42 22 56" stroke="white" stroke-opacity=".87" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="328" cy="342" rx="79" ry="103" fill="url(#shine)"/>
+    <path d="M298 508c63 13 156 27 228-6" stroke="white" stroke-opacity=".8" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g class="scene-worker worker-one" filter="url(#tiny-shadow)" transform="translate(264 91) rotate(-8) scale(.7)"><use href="#clinician"/><path d="M65 103c54 30 69 54 79 86" stroke="#225a7d" stroke-width="5"/><path d="m127 171 23 12-9 16-23-12Z" fill="#d9e6ed"/><path d="m144 195 13 12" stroke="white" stroke-width="3"/></g>
+  <g class="scene-worker worker-two" filter="url(#tiny-shadow)" transform="translate(443 32) rotate(7) scale(.83)"><use href="#clinician"/><path d="M32 91 3 105-24 104" stroke="#b2cad8" stroke-width="9" stroke-linecap="round"/><path d="m-25 100-6 29" stroke="#3a647b" stroke-width="6"/><path d="m-31 129-4 18" stroke="#edf8fa" stroke-width="3"/></g>
+  <g class="scene-worker worker-three" filter="url(#tiny-shadow)" transform="translate(575 151) rotate(14) scale(.7)"><use href="#clinician"/><path d="M30 87c-41 2-58 14-69 36" stroke="#d0e4eb" stroke-width="11" stroke-linecap="round"/><path d="m-40 121-16 30" stroke="#3a647b" stroke-width="7"/><path d="M66 94c72 13 81 72 71 141" stroke="#294e69" stroke-width="7"/></g>
+  <g class="scene-ladder" opacity=".95"><path d="M102 402v267M172 405v263M93 669h89M103 429h69M103 467h69M103 505h69M103 543h69M103 581h69M103 619h69" stroke="#cee0ed" stroke-width="5"/><path d="M103 405h70l30 20v244M173 445l30 20M173 485l30 20M173 525l30 20M173 565l30 20M173 605l30 20M173 645l30 20" stroke="#365b77" stroke-width="4"/><path d="M87 395h103v17H87Z" fill="#b9d1e2"/><path d="M88 399h102M108 396v13M128 396v13M148 396v13M168 396v13" stroke="#eef8fc" stroke-width="2"/></g>
+  <g class="scene-worker worker-four" filter="url(#tiny-shadow)" transform="translate(104 270) rotate(-4) scale(.68)"><use href="#clinician"/><path d="m63 95 53 7 14-9" stroke="#bcd7e7" stroke-width="9" stroke-linecap="round"/><path d="m124 96 21 10" stroke="white" stroke-width="4"/></g>
+  <g class="scene-sparkles" data-hero-float fill="#effbff"><circle cx="235" cy="349" r="2.5"/><circle cx="207" cy="368" r="1.5"/><circle cx="194" cy="333" r="2"/><circle cx="222" cy="322" r="2"/><circle cx="203" cy="305" r="1.5"/><circle cx="614" cy="409" r="3"/><circle cx="625" cy="438" r="2"/><circle cx="596" cy="466" r="1.5"/><path d="M568 342h22m-11-11v22M298 432h18m-9-9v18" stroke="#fff" stroke-width="2"/><path d="m646 532 6 15 15 6-15 6-6 15-6-15-15-6 15-6Z"/></g>
+  <g data-hero-float transform="translate(515 646) rotate(-12)"><rect width="184" height="74" rx="18" fill="#f9fcf7"/><path d="m22 38 8 8 15-18" stroke="#689887" stroke-width="2" stroke-linecap="round"/><text x="62" y="30" fill="#6d858e" font-size="9" font-family="sans-serif" letter-spacing="1">PRECISIÓN QUE CUIDA.</text><text x="62" y="49" fill="#193f50" font-size="14" font-family="sans-serif">Sonrisas con sentido.</text></g>
+</svg>

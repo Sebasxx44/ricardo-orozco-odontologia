@@ -1,0 +1,15 @@
+---
+import BrandTA from '@/components/BrandTA.astro';
+import IconTA from '@/components/IconTA.astro';
+interface Props { active: string }
+const { active } = Astro.props;
+const links = [{ href: '/inicio', label: 'Inicio' }, { href: '/hoja-de-vida', label: 'El doctor' }, { href: '/servicios', label: 'Tratamientos' }, { href: '/prevencion-oral', label: 'Prevención' }, { href: '/blog', label: 'Blog' }];
+const selected = (href: string) => active.replace(/^\//, '') === href.slice(1);
+---
+<header class="site-header">
+  <BrandTA/>
+  <nav class="desktop-nav" aria-label="Navegación principal">{links.map((link) => <a href={link.href} aria-current={selected(link.href) ? 'page' : undefined}>{link.label}</a>)}</nav>
+  <a class="header-appointment" href="/contacto">Hablemos de tu sonrisa <span><IconTA name="arrow" size={15}/></span></a>
+  <button id="menu-toggle" class="menu-toggle" aria-label="Abrir navegación" aria-expanded="false" aria-controls="mobile-nav"><IconTA name="menu"/></button>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Navegación móvil" hidden>{[...links, { href: '/contacto', label: 'Contacto' }].map((link, index) => <a href={link.href} aria-current={selected(link.href) ? 'page' : undefined}><span>0{index + 1}</span>{link.label}<IconTA name="arrow" size={18}/></a>)}</nav>
+</header>
